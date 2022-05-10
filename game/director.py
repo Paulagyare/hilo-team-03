@@ -63,6 +63,14 @@ class Director:
         if not self.is_playing:
             return
 
+        for i in range(len(self.cards)):
+            cards = self.cards[i]
+            cards.draw()
+            self.score += cards.points 
+        self.total_score += self.score
+    
+
+
     def do_outputs(self):
         """Displays the dice and the score. Also asks the player if they want to roll again. 
 
@@ -71,3 +79,12 @@ class Director:
         """
         if not self.is_playing:
             return
+        
+        values = ""
+        for i in range(len(self.cards)):
+            cards = self.cards[i]
+            values += f"{cards.value} "
+
+        print(f"You drew: {values}")
+        print(f"Your score is: {self.total_score}\n")
+        self.is_playing == (self.score > 0)

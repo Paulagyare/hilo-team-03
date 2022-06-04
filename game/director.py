@@ -80,7 +80,7 @@ class Director:
         if not self.is_playing:
             return
         
-        values = " "
+        values =  " "
         for i in range(len(self.cards)):
             cards = self.cards[i]
             values += f"{cards.value} "
